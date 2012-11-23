@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+body {
+    background: #0f0;
+    font-family: Arial;
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#countdown {
+    display: table-cell;
+    vertical-align: middle;
+}
+.preview {
+    font-size: .5em;
+    display: table;
+    width: 100%;
+}
+#timer-form {
+    padding: 1em;
+    background: white;
+    input {
+        width: 3em;
+    }
+    button {
+        width: 4em;
+        height: 4em;
+        border-radius: 2em;
+        border: 0;
+        font-size: 2em;
+        box-shadow: 0 0 .2em 0;
+        margin: .3em;
+    }
+    button:hover {
+        box-shadow: 0 0 .5em 0;
+    }
+    button.active {
+        border: 3px solid #222;
+    }
+    #start-button {
+        background: #0f0;
+    }
+    #stop-button {
+        background: #f00;
+    }
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Timer {{ timer.slug }}{% endblock %}
+
+{% block body %}
+
+
+<div id="countdown"></div>
+<script type="text/javascript">
+	var last_change = 0;
+	var slug = "{{ timer.slug }}";
+	var state = {
+		change_stamp: {{ timer.change_stamp }},
+		state: "{{ timer.state }}",
+		minutes: {{ timer.minutes }},
+		seconds: {{ timer.seconds }}
+	};
+</script>
+
+{% endblock %}

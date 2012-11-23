@@ -1,0 +1,27 @@
+{% extends "timer/show.html" %}
+
+{% block title %}Set timer {{ timer.slug }}{% endblock %}
+
+{% block body %}
+
+
+<form method="post" action="." id="timer-form">
+{% csrf_token %}
+Set timer: {{ form.minutes }}: {{ form.seconds }}
+<br/>
+<button {% if timer.state == "start" or timer.state == "resume" %}class="active"{% endif %} name="state" value="start" id="start-button">Start!</button>
+<button {% if timer.state == "reset" %}class="active"{% endif %} name="state" value="reset" id="stop-button">Reset</button>
+{% if timer.state == "start" or timer.state == "resume" %}
+<button name="state" value="pause" id="pause-button">Pause</button>
+{% endif %}
+
+{% if timer.state == "pause" %}
+<button {% if timer.state == "pause" %}class="active"{% endif %} name="state" value="resume" id="resume-button">Resume</button>
+{% endif %}
+</form>
+
+<div class="preview">
+{{ block.super }}
+</div>
+
+{% endblock %}
