@@ -14,6 +14,11 @@ if 'django_cas' in settings.INSTALLED_APPS:
         (r'^accounts/login/$', 'django_cas.views.login'),
         (r'^accounts/logout/$', 'django_cas.views.logout'),
     )
+else:
+    urlpatterns += patterns('',
+        (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+        (r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    )
 
 urlpatterns += patterns('',
     url(r'^$', 'timer.views.show_timer'),

@@ -1,4 +1,5 @@
 import json
+from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from .forms import TimerForm
@@ -8,6 +9,7 @@ def show_timer(request, slug=''):
 	timer = Timer.get(slug)
 	return render(request, "timer/show.html", {"timer": timer})
 
+@permission_required("timer.change_timer")
 def set_timer(request, slug=''):
     timer = Timer.get(slug)
     if request.method == "POST":
